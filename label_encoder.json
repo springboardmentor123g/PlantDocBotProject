@@ -1,0 +1,36 @@
+{
+  "label2id": {
+    "Pepper bell Bacterial spot": 0,
+    "Pepper bell healthy": 1,
+    "Potato Early blight": 2,
+    "Potato Late blight": 3,
+    "Potato healthy": 4,
+    "Tomato Bacterial spot": 5,
+    "Tomato Early blight": 6,
+    "Tomato Late blight": 7,
+    "Tomato Leaf Mold": 8,
+    "Tomato Septoria leaf spot": 9,
+    "Tomato Spider mites Two spotted spider mite": 10,
+    "Tomato Target Spot": 11,
+    "Tomato YellowLeaf Curl Virus": 12,
+    "Tomato healthy": 13,
+    "Tomato mosaic virus": 14
+  },
+  "id2label": {
+    "0": "Pepper bell Bacterial spot",
+    "1": "Pepper bell healthy",
+    "2": "Potato Early blight",
+    "3": "Potato Late blight",
+    "4": "Potato healthy",
+    "5": "Tomato Bacterial spot",
+    "6": "Tomato Early blight",
+    "7": "Tomato Late blight",
+    "8": "Tomato Leaf Mold",
+    "9": "Tomato Septoria leaf spot",
+    "10": "Tomato Spider mites Two spotted spider mite",
+    "11": "Tomato Target Spot",
+    "12": "Tomato YellowLeaf Curl Virus",
+    "13": "Tomato healthy",
+    "14": "Tomato mosaic virus"
+  }
+}
