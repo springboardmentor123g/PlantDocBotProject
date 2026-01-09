@@ -1,4 +1,4 @@
-# PlantDocBot- Multimodal Plant Disease Detection
+# PlantDocBot : AI Plant Disease Diagnosis via Chat and Image Upload
 
 PlantDocBot is a multimodal AI system for plant disease diagnosis that combines **image-based classification**, **text-based symptom validation**, and **dataset-driven guidance** through a retrieval-based chatbot.
 The system is designed to assist farmers, gardeners, and students by providing reliable disease identification from plant leaf images, with optional symptom validation.
