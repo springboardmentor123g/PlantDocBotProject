@@ -1,0 +1,439 @@
+{
+    "chats": {
+        "627af889-9dd5-423e-9182-a20a62faa987": {
+            "id": "627af889-9dd5-423e-9182-a20a62faa987",
+            "created_at": "2026-01-09T06:45:08.638486",
+            "updated_at": "2026-01-09T06:46:07.028625",
+            "title": "Unknown - Unknown",
+            "messages": [
+                {
+                    "timestamp": "2026-01-09T06:45:08.636519",
+                    "query_text": "",
+                    "image_token": "test3.jpg",
+                    "bw_image_url": "/uploads/de531727-f3e2-4b56-b8b2-39ee7282c741.jpg",
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Unknown",
+                        "confidence": "39.27%",
+                        "is_healthy": false,
+                        "raw_class": "Unknown",
+                        "treatment": "\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices",
+                        "success": true,
+                        "top_predictions": [
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "39.27%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "30.57%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "11.75%",
+                                "is_healthy": false
+                            }
+                        ]
+                    },
+                    "response_text": "\ud83d\udd2c **Plant Disease Analysis**\n\n\ud83c\udf31 **Plant Type:** Unknown\n\u26a0\ufe0f **Disease Detected:** Unknown\n\ud83d\udcca **Confidence:** 39.27%\n\n**\ud83d\udc8a Treatment Recommendations:**\n\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices\n\n\n**\ud83d\udd0d Alternative Diagnoses:**\n2. Unknown -  (30.57%)\n3. Unknown -  (11.75%)\n",
+                    "has_image": true,
+                    "has_text": false
+                },
+                {
+                    "timestamp": "2026-01-09T06:46:07.027340",
+                    "query_text": "leafs with yellow spots",
+                    "image_token": "",
+                    "bw_image_url": null,
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Image Required",
+                        "confidence": "N/A",
+                        "is_healthy": false,
+                        "treatment": "Please upload a clear image of your plant for analysis.",
+                        "success": false,
+                        "text_only": true
+                    },
+                    "response_text": "\ud83d\udcac **Question Received:** leafs with yellow spots\n\n\ud83d\udcf8 **Please upload an image** for accurate disease detection.\n\nOur AI model analyzes plant leaf images to detect:\n\u2022 Disease type and severity\n\u2022 Specific plant species\n\u2022 Treatment recommendations\n\n\ud83d\udca1 **Tip:** Take a clear photo of the affected leaves in good lighting for best results.",
+                    "has_image": false,
+                    "has_text": true
+                }
+            ]
+        },
+        "957ab621-93f1-4573-88c5-4cc535bc8fec": {
+            "id": "957ab621-93f1-4573-88c5-4cc535bc8fec",
+            "created_at": "2026-01-09T06:49:26.686176",
+            "updated_at": "2026-01-09T06:49:26.686192",
+            "title": "Unknown - Unknown",
+            "messages": [
+                {
+                    "timestamp": "2026-01-09T06:49:26.684135",
+                    "query_text": "",
+                    "image_token": "test_model_pred.jpg",
+                    "bw_image_url": "/uploads/c78fa011-cca0-40f4-8634-cf2687bd7d30.jpg",
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Unknown",
+                        "confidence": "100.00%",
+                        "is_healthy": false,
+                        "raw_class": "Unknown",
+                        "treatment": "\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices",
+                        "success": true,
+                        "top_predictions": [
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "100.00%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "0.00%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "0.00%",
+                                "is_healthy": false
+                            }
+                        ]
+                    },
+                    "response_text": "\ud83d\udd2c **Plant Disease Analysis**\n\n\ud83c\udf31 **Plant Type:** Unknown\n\u26a0\ufe0f **Disease Detected:** Unknown\n\ud83d\udcca **Confidence:** 100.00%\n\n**\ud83d\udc8a Treatment Recommendations:**\n\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices\n\n\n**\ud83d\udd0d Alternative Diagnoses:**\n2. Unknown -  (0.00%)\n3. Unknown -  (0.00%)\n",
+                    "has_image": true,
+                    "has_text": false
+                }
+            ]
+        },
+        "97c3679d-b7eb-487c-b8f6-c887d7ce4fe8": {
+            "id": "97c3679d-b7eb-487c-b8f6-c887d7ce4fe8",
+            "created_at": "2026-01-09T07:01:44.189892",
+            "updated_at": "2026-01-09T07:02:47.251281",
+            "title": "Unknown - Unknown",
+            "messages": [
+                {
+                    "timestamp": "2026-01-09T07:01:44.187945",
+                    "query_text": "",
+                    "image_token": "test7.jpg",
+                    "bw_image_url": "/uploads/bce837bf-d445-4c7d-a6eb-c832438c0545.jpg",
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Unknown",
+                        "confidence": "45.91%",
+                        "is_healthy": false,
+                        "raw_class": "Unknown",
+                        "treatment": "\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices",
+                        "success": true,
+                        "top_predictions": [
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "45.91%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "15.23%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "13.57%",
+                                "is_healthy": false
+                            }
+                        ]
+                    },
+                    "response_text": "\ud83d\udd2c **Plant Disease Analysis**\n\n\ud83c\udf31 **Plant Type:** Unknown\n\u26a0\ufe0f **Disease Detected:** Unknown\n\ud83d\udcca **Confidence:** 45.91%\n\n**\ud83d\udc8a Treatment Recommendations:**\n\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices\n\n\n**\ud83d\udd0d Alternative Diagnoses:**\n2. Unknown -  (15.23%)\n3. Unknown -  (13.57%)\n",
+                    "has_image": true,
+                    "has_text": false
+                },
+                {
+                    "timestamp": "2026-01-09T07:02:47.249703",
+                    "query_text": "",
+                    "image_token": "test1.jpg",
+                    "bw_image_url": "/uploads/8461226c-387c-48a6-9832-3c6584f79051.jpg",
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Unknown",
+                        "confidence": "51.77%",
+                        "is_healthy": false,
+                        "raw_class": "Unknown",
+                        "treatment": "\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices",
+                        "success": true,
+                        "top_predictions": [
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "51.77%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "36.82%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "8.49%",
+                                "is_healthy": false
+                            }
+                        ]
+                    },
+                    "response_text": "\ud83d\udd2c **Plant Disease Analysis**\n\n\ud83c\udf31 **Plant Type:** Unknown\n\u26a0\ufe0f **Disease Detected:** Unknown\n\ud83d\udcca **Confidence:** 51.77%\n\n**\ud83d\udc8a Treatment Recommendations:**\n\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices\n\n\n**\ud83d\udd0d Alternative Diagnoses:**\n2. Unknown -  (36.82%)\n3. Unknown -  (8.49%)\n",
+                    "has_image": true,
+                    "has_text": false
+                }
+            ]
+        },
+        "595a2108-325d-4a91-9f5e-45fd80c19522": {
+            "id": "595a2108-325d-4a91-9f5e-45fd80c19522",
+            "created_at": "2026-01-09T12:51:31.252271",
+            "updated_at": "2026-01-09T12:51:31.252277",
+            "title": "Unknown - Unknown",
+            "messages": [
+                {
+                    "timestamp": "2026-01-09T12:51:31.251752",
+                    "query_text": "",
+                    "image_token": "test_model_pred.jpg",
+                    "bw_image_url": "/uploads/586d922e-362c-497f-ab35-e34491a8574e.jpg",
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Unknown",
+                        "confidence": "100.00%",
+                        "is_healthy": false,
+                        "raw_class": "Unknown",
+                        "treatment": "\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices",
+                        "success": true,
+                        "top_predictions": [
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "100.00%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "0.00%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "0.00%",
+                                "is_healthy": false
+                            }
+                        ]
+                    },
+                    "response_text": "\ud83d\udd2c **Plant Disease Analysis**\n\n\ud83c\udf31 **Plant Type:** Unknown\n\u26a0\ufe0f **Disease Detected:** Unknown\n\ud83d\udcca **Confidence:** 100.00%\n\n**\ud83d\udc8a Treatment Recommendations:**\n\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices\n\n\n**\ud83d\udd0d Alternative Diagnoses:**\n2. Unknown -  (0.00%)\n3. Unknown -  (0.00%)\n",
+                    "has_image": true,
+                    "has_text": false
+                }
+            ]
+        },
+        "9363abe6-0ee4-4734-8c33-d4209feacd80": {
+            "id": "9363abe6-0ee4-4734-8c33-d4209feacd80",
+            "created_at": "2026-01-09T15:11:19.712737",
+            "updated_at": "2026-01-09T15:11:41.424644",
+            "title": "leaves with yellow spots",
+            "messages": [
+                {
+                    "timestamp": "2026-01-09T15:11:19.710595",
+                    "query_text": "leaves with yellow spots",
+                    "image_token": "",
+                    "bw_image_url": null,
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Image Required",
+                        "confidence": "N/A",
+                        "is_healthy": false,
+                        "treatment": "Please upload a clear image of your plant for analysis.",
+                        "success": false,
+                        "text_only": true
+                    },
+                    "response_text": "\ud83d\udcac **Question Received:** leaves with yellow spots\n\n\ud83d\udcf8 **Please upload an image** for accurate disease detection.\n\nOur AI model analyzes plant leaf images to detect:\n\u2022 Disease type and severity\n\u2022 Specific plant species\n\u2022 Treatment recommendations\n\n\ud83d\udca1 **Tip:** Take a clear photo of the affected leaves in good lighting for best results.",
+                    "has_image": false,
+                    "has_text": true
+                },
+                {
+                    "timestamp": "2026-01-09T15:11:41.423650",
+                    "query_text": "",
+                    "image_token": "test5.jpg",
+                    "bw_image_url": "/uploads/06fdad22-86ae-47c9-90c9-ffd7635ed2c2.jpg",
+                    "disease_prediction": {
+                        "error": "Prediction failed: 502",
+                        "plant": "Unknown",
+                        "disease": "Prediction Error",
+                        "success": false
+                    },
+                    "response_text": "\u274c **Prediction Failed**\n\nError: Prediction failed: 502\n\nPlease try again or check:\n\u2022 Image quality and clarity\n\u2022 Ensure the image shows plant leaves clearly\n\u2022 Check Colab ngrok connection\n\u2022 Verify network connectivity",
+                    "has_image": true,
+                    "has_text": false
+                }
+            ]
+        },
+        "214a7519-0b16-466f-b8f2-b738ede77656": {
+            "id": "214a7519-0b16-466f-b8f2-b738ede77656",
+            "created_at": "2026-01-09T16:05:32.127155",
+            "updated_at": "2026-01-09T16:05:32.127182",
+            "title": "Unknown - Unknown",
+            "messages": [
+                {
+                    "timestamp": "2026-01-09T16:05:32.123565",
+                    "query_text": "",
+                    "image_token": "test18.jpg",
+                    "bw_image_url": "/uploads/f8357a68-f767-48a2-9382-394a792352f6.jpg",
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Unknown",
+                        "confidence": "43.09%",
+                        "is_healthy": false,
+                        "raw_class": "Unknown",
+                        "treatment": "\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices",
+                        "success": true,
+                        "top_predictions": [
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "43.09%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "23.69%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "18.48%",
+                                "is_healthy": false
+                            }
+                        ]
+                    },
+                    "response_text": "\ud83d\udd2c **Plant Disease Analysis**\n\n\ud83c\udf31 **Plant Type:** Unknown\n\u26a0\ufe0f **Disease Detected:** Unknown\n\ud83d\udcca **Confidence:** 43.09%\n\n**\ud83d\udc8a Treatment Recommendations:**\n\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices\n\n\n**\ud83d\udd0d Alternative Diagnoses:**\n2. Unknown -  (23.69%)\n3. Unknown -  (18.48%)\n",
+                    "has_image": true,
+                    "has_text": false
+                }
+            ]
+        },
+        "dce0a154-9c32-4d17-8c51-b1c72701c225": {
+            "id": "dce0a154-9c32-4d17-8c51-b1c72701c225",
+            "created_at": "2026-01-09T16:13:47.167662",
+            "updated_at": "2026-01-09T16:43:29.399994",
+            "title": "leaves are blaughted",
+            "messages": [
+                {
+                    "timestamp": "2026-01-09T16:13:47.166552",
+                    "query_text": "leaves are blaughted",
+                    "image_token": "",
+                    "bw_image_url": null,
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Image Required",
+                        "confidence": "N/A",
+                        "is_healthy": false,
+                        "treatment": "Please upload a clear image of your plant for analysis.",
+                        "success": false,
+                        "text_only": true
+                    },
+                    "response_text": "\ud83d\udcac **Question Received:** leaves are blaughted\n\n\ud83d\udcf8 **Please upload an image** for accurate disease detection.\n\nOur AI model analyzes plant leaf images to detect:\n\u2022 Disease type and severity\n\u2022 Specific plant species\n\u2022 Treatment recommendations\n\n\ud83d\udca1 **Tip:** Take a clear photo of the affected leaves in good lighting for best results.",
+                    "has_image": false,
+                    "has_text": true
+                },
+                {
+                    "timestamp": "2026-01-09T16:14:07.830825",
+                    "query_text": "",
+                    "image_token": "test_model_pred.jpg",
+                    "bw_image_url": "/uploads/86bb45f1-35af-43e6-95f7-e0a4565f4074.jpg",
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Unknown",
+                        "confidence": "100.00%",
+                        "is_healthy": false,
+                        "raw_class": "Unknown",
+                        "treatment": "\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices",
+                        "success": true,
+                        "top_predictions": [
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "100.00%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "0.00%",
+                                "is_healthy": false
+                            },
+                            {
+                                "plant": "Unknown",
+                                "disease": "",
+                                "confidence": "0.00%",
+                                "is_healthy": false
+                            }
+                        ]
+                    },
+                    "response_text": "\ud83d\udd2c **Plant Disease Analysis**\n\n\ud83c\udf31 **Plant Type:** Unknown\n\u26a0\ufe0f **Disease Detected:** Unknown\n\ud83d\udcca **Confidence:** 100.00%\n\n**\ud83d\udc8a Treatment Recommendations:**\n\ud83d\udd2c General Treatment Recommendations:\n\u2022 Consult with a local agricultural expert\n\u2022 Take clear photos for diagnosis\n\u2022 Monitor plant regularly\n\u2022 Remove infected parts if safe\n\u2022 Maintain good cultural practices\n\n\n**\ud83d\udd0d Alternative Diagnoses:**\n2. Unknown -  (0.00%)\n3. Unknown -  (0.00%)\n",
+                    "has_image": true,
+                    "has_text": false
+                },
+                {
+                    "timestamp": "2026-01-09T16:43:29.398009",
+                    "query_text": "lidfun",
+                    "image_token": "",
+                    "bw_image_url": null,
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Image Required",
+                        "confidence": "N/A",
+                        "is_healthy": false,
+                        "treatment": "Please upload a clear image of your plant for analysis.",
+                        "success": false,
+                        "text_only": true
+                    },
+                    "response_text": "\ud83d\udcac **Question Received:** lidfun\n\n\ud83d\udcf8 **Please upload an image** for accurate disease detection.\n\nOur AI model analyzes plant leaf images to detect:\n\u2022 Disease type and severity\n\u2022 Specific plant species\n\u2022 Treatment recommendations\n\n\ud83d\udca1 **Tip:** Take a clear photo of the affected leaves in good lighting for best results.",
+                    "has_image": false,
+                    "has_text": true
+                }
+            ]
+        },
+        "f3b44a5d-01b5-4143-b6e0-ac69198a38e1": {
+            "id": "f3b44a5d-01b5-4143-b6e0-ac69198a38e1",
+            "created_at": "2026-01-09T16:45:34.114859",
+            "updated_at": "2026-01-09T16:45:34.114882",
+            "title": "ludyboiusdyiclnhv",
+            "messages": [
+                {
+                    "timestamp": "2026-01-09T16:45:34.112294",
+                    "query_text": "ludyboiusdyiclnhv",
+                    "image_token": "",
+                    "bw_image_url": null,
+                    "disease_prediction": {
+                        "plant": "Unknown",
+                        "disease": "Image Required",
+                        "confidence": "N/A",
+                        "is_healthy": false,
+                        "treatment": "Please upload a clear image of your plant for analysis.",
+                        "success": false,
+                        "text_only": true
+                    },
+                    "response_text": "\ud83d\udcac **Question Received:** ludyboiusdyiclnhv\n\n\ud83d\udcf8 **Please upload an image** for accurate disease detection.\n\nOur AI model analyzes plant leaf images to detect:\n\u2022 Disease type and severity\n\u2022 Specific plant species\n\u2022 Treatment recommendations\n\n\ud83d\udca1 **Tip:** Take a clear photo of the affected leaves in good lighting for best results.",
+                    "has_image": false,
+                    "has_text": true
+                }
+            ]
+        }
+    }
+}
