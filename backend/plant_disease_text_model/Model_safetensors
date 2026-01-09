@@ -1,0 +1,8 @@
+## Trained Model Weights
+
+The trained model file (`model.safetensors`) is larger than GitHub’s upload limit.
+
+You can download it from Google Drive:
+🔗 https://drive.google.com/file/d/13P8WD86WAeGyDreBHp6vxwCLi8mTHkCO/view?usp=drivesdk
+
+After downloading, place the file in the project root directory before running the code.
