@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroBot Portal Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #224a2b;
+            --hover-green: #36790d;
+            --bg-cream: #f4eee0;
+            --text-dark: #333;
+            --light-gray: #535353;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-cream);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 380px;
+            text-align: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .logo-section h2 {
+            margin: 0;
+            color: var(--text-dark);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        /* Farmer/Admin Toggle */
+        .role-toggle {
+            display: flex;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            padding: 4px;
+        }
+
+        .role-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s;
+            background: transparent;
+            color: #888;
+        }
+
+        .role-btn.active {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        /* Input Styling */
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            font-weight: 500;
+            display: block;
+            font-size: 18px;
+            color: #4f4f4f;
+            margin-bottom: 5px;
+            margin-left: 5px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--light-gray);
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: var(--primary-green);
+        }
+
+        /* Button Styling */
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            background: var(--primary-green);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--hover-green);
+        }
+
+        .error {
+            color: #d9534f;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="logo-section">
+            <span style="font-size: 24px;">🌱</span>
+            <h2>AgroBot Portal</h2>
+        </div>
+
+        <div class="role-toggle">
+            <button type="button" class="role-btn active" onclick="setRole('farmer', this)">Farmer</button>
+            <button type="button" class="role-btn" onclick="setRole('admin', this)">Admin</button>
+        </div>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <input type="hidden" name="role" id="user-role" value="farmer">
+            
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Enter your name or email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Access Dashboard</button>
+        </form>
+    </div>
+
+    <script>
+        function setRole(role, btn) {
+            // Update hidden input
+            document.getElementById('user-role').value = role;
+            
+            // Update UI buttons
+            const buttons = document.querySelectorAll('.role-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+    </script>
+</body>
+</html>

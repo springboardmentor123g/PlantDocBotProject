@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AgroBot Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5; }
+.header { background:#224a2b; padding:20px; color:white; font-size:24px; text-align:center; position:relative; }
+.logout { position:absolute; right:20px; top:20px; background:#649e86; padding:8px 12px; border-radius:6px; text-decoration:none; color:#fff; font-weight:bold; }
+.main-container { display:flex; justify-content:center; padding:20px; }
+.box { width:60%; background:white; padding:20px; border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.1); }
+.header-content { display:flex; justify-content:space-between; align-items:center; margin:0; padding:15px; background:#0d4d2c; color:white; border-radius:10px 10px 0 0; }
+.box h2 { margin:0; padding:0; color:white; font-weight:bold; font-size:24px; }
+.language-selector { width:150px; padding:5px; border-radius:5px; border:1px solid #ccc; color:#333; }
+
+.chat-container { display:flex; flex-direction:column; height:550px; }
+.chat-box { flex-grow:1; overflow-y:auto; border:1px solid #ccc; padding:10px; border-radius:6px; background:#fefefe; }
+.chat-input-form { display:flex; width:100%; margin-top:10px; }
+.chat-input { flex-grow:1; padding:10px; border-radius:20px; border:1px solid #ccc; margin-right:10px; outline:none; font-size:16px; }
+.chat-send-button, .chat-image-button { width:45px; height:45px; color:white; border:none; border-radius:50%; cursor:pointer; display:flex; justify-content:center; align-items:center; font-size:22px; box-shadow:0 2px 5px rgba(0,0,0,0.2); }
+.chat-image-button { background:#1d6f45; margin-right:10px; }
+.chat-send-button { background:#0d4d2c; font-size:20px; font-weight:bold; }
+.chat-image-button i { color:white; }
+
+.user-msg { background:#d1e7ff; padding:8px 12px; border-radius:18px 18px 2px 18px; margin:8px 0; margin-left:auto; max-width:80%; margin-right:10px; border-left:8px solid #4a4e82; word-wrap:break-word; }
+.bot-msg { background:#e7ffe7; padding:8px 12px; border-radius:18px 18px 18px 2px; margin:8px 0; margin-right:auto; max-width:80%; margin-left:10px; white-space:pre-wrap; border-left:8px solid #2e7d32; word-wrap:break-word; }
+.bot-msg img { max-width:200px; border-radius:8px; display:block; margin-top:5px; }
+.uploaded-img { max-width:250px; height:auto; border:1px solid #ccc; border-radius:8px; margin-bottom:10px; }
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    Welcome, {{ user }}
+    <a class="logout" href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<div class="main-container">
+    <div class="box">
+
+        {% if uploaded_image %}
+            <h3>Uploaded Image:</h3>
+            <img src="{{ url_for('static', filename='uploads/' ~ uploaded_image) }}" class="uploaded-img"/>
+        {% endif %}
+
+        <div class="header-content">
+            <h2>🤖 AgroBot</h2>
+            <select id="languageSelector" class="language-selector" onchange="changeLanguage(this.value)"></select>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-box" id="chatBox">
+                <p class="bot-msg" id="greetingMsg">Hello! I'm your smart agricultural assistant, here to help you diagnose plant problems, understand symptoms, and get the best solutions for keeping your crops healthy. How can I support you today?</p>
+            </div>
+
+            <form id="chatForm" class="chat-input-form" onsubmit="event.preventDefault(); sendChat()">
+                <input id="userMessage" class="chat-input" type="text" placeholder="Ask AgroBot...">
+                <label class="chat-image-button">
+                    <i class="fa-solid fa-paperclip"></i>
+                    <input type="file" id="chatImage" accept="image/*" style="display:none" onchange="sendImage()">
+                </label>
+                <div class="chat-send-button" onclick="sendChat()">></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+// Languages
+const LANGUAGES = [
+    { code: "en", name: "English" },
+    { code: "hi", name: "Hindi (हिंदी)" },
+    { code: "bn", name: "Bengali (বাংলা)" },
+    { code: "mr", name: "Marathi (मराठी)" },
+    { code: "te", name: "Telugu (తెలుగు)" },
+    { code: "ta", name: "Tamil (தமிழ்)" },
+    { code: "gu", name: "Gujarati (ગુજરાતી)" },
+    { code: "ur", name: "Urdu (اردو)" },
+    { code: "kn", name: "Kannada (ಕನ್ನಡ)" },
+    { code: "or", name: "Odia (ଓଡ଼ିଆ)" },
+    { code: "ml", name: "Malayalam (മലയാളം)" },
+    { code: "pa", name: "Punjabi (ਪੰਜਾਬੀ)" },
+    { code: "as", name: "Assamese (অসমীয়া)" },
+    { code: "mai", name: "Maithili (मैथिली)" },
+    { code: "sat", name: "Santali (ᱥᱟᱱᱛᱟᱲᱤ)" },
+    { code: "ks", name: "Kashmiri (کٲشُر)" },
+    { code: "ne", name: "Nepali (नेपाली)" },
+    { code: "sd", name: "Sindhi (سنڌي)" },
+    { code: "doi", name: "Dogri (डोगरी)" },
+    { code: "kok", name: "Konkani (कोंकणी)" },
+    { code: "mni", name: "Meitei (ꯃꯤꯇꯩ)" },
+    { code: "ar", name: "Arabic (العربية)" },
+    { code: "brx", name: "Bodo (बर')" },
+    { code: "sa", name: "Sanskrit (संस्कृतम्)" },
+    { code: "lus", name: "Mizo (Mizo ṭawng)" }
+    // Add more as needed
+];
+
+const TRANSLATIONS = {
+    en: "Hello! I'm your smart agricultural assistant, here to help you diagnose plant problems, understand symptoms, and get the best solutions for keeping your crops healthy. How can I support you today?",
+
+    hi: "नमस्ते! मैं आपका स्मार्ट कृषि सहायक हूँ, जो पौधों की समस्याओं का पता लगाने, लक्षण समझने और आपकी फसलों को स्वस्थ रखने के लिए सर्वोत्तम समाधान देता हूँ। मैं आपकी कैसे मदद कर सकता हूँ?",
+
+    bn: "নমস্কার! আমি আপনার স্মার্ট কৃষি সহায়ক, গাছের সমস্যা নির্ণয় করতে, লক্ষণ বুঝতে এবং ফসলকে সুস্থ রাখতে সহায়তা করি। আজ আপনাকে কীভাবে সাহায্য করতে পারি?",
+
+    mr: "नमस्कार! मी तुमचा स्मार्ट कृषी सहाय्यक आहे, पिकांच्या समस्या ओळखण्यात आणि सर्वोत्तम उपाय देण्यात मदत करतो. मी तुम्हाला कशी मदत करू शकतो?",
+
+    te: "నమస్తే! నేను మీ స్మార్ట్ వ్యవసాయ సహాయకుడిని. పంట సమస్యలను గుర్తించి పరిష్కారాలను సూచిస్తాను. నేను ఎలా సహాయం చేయగలను?",
+
+    ta: "வணக்கம்! நான் உங்கள் ஸ்மார்ட் வேளாண்மை உதவியாளர். நான் எப்படி உதவலாம்?",
+
+    gu: "નમસ્તે! હું તમારો સ્માર્ટ કૃષિ સહાયક છું. આજે હું તમને કેવી રીતે મદદ કરી શકું?",
+
+    ur: "سلام! میں آپ کا سمارٹ زرعی معاون ہوں۔ میں آپ کی کیسے مدد کرسکتا ہوں؟",
+
+    kn: "ನಮಸ್ಕಾರ! ನಾನು ನಿಮ್ಮ ಸ್ಮಾರ್ಟ್ ಕೃಷಿ ಸಹಾಯಕನು. ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು?",
+
+    or: "ନମସ୍କାର! ମୁଁ ଆପଣଙ୍କ ସ୍ମାର୍ଟ କୃଷି ସହାୟକ। ମୁଁ ଆଜି କିପରି ଆପଣଙ୍କୁ ସହଯୋଗ କରିପାରେ?",
+
+    ml: "നമസ്കാരം! ഞാൻ നിങ്ങളുടെ സ്മാർട്ട് കാർഷിക സഹായി. ഞാൻ എങ്ങനെ സഹായിക്കാം?",
+
+    pa: "ਸਤ ਸ੍ਰੀ ਅਕਾਲ! ਮੈਂ ਤੁਹਾਡਾ ਸਮਾਰਟ ਖੇਤੀ-ਬਾੜੀ ਸਹਾਇਕ ਹਾਂ। ਮੈਂ ਤੁਹਾਡੀ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦਾ ਹਾਂ?",
+
+    as: "নমস্কাৰ! মই আপোনাৰ স্মাৰ্ট কৃষি সহায়ক। আপোনাক কেনেকৈ সহায় কৰিব পাৰোঁ?",
+
+    mai: "नमस्कार! हम अहाँक स्मार्ट कृषि सहयोगी छी। अहाँक की मदद चाही?",
+
+    sat: "ᱧᱩᱛ ᱟᱞ! ᱟᱢ ᱟᱫᱮ ᱥᱢᱟᱨᱛ ᱠᱨᱤᱥᱤ ᱥᱟᱭᱟᱜ ᱠᱚ ᱵᱚᱞ ᱠᱟᱱ ᱢᱮ। ᱟᱢ ᱛᱮ ᱦᱟᱞᱛᱮ?",
+
+    ks: "آداب! مَیں تُہندٕ سمارٹ زرعی معاون آہِم۔ آج مَیں تُہندٕ کَس طرح مدد کرٕم؟",
+
+    ne: "नमस्ते! म तपाईंको स्मार्ट कृषि सहायक हुँ। म तपाईंलाई कसरी सहायता गर्न सक्छु?",
+
+    sd: "سلام! مان توهانجو سمارٽ زرعي مددگار آهيان۔ مان توهانجي ڪيئن مدد ڪري سگھان ٿو؟",
+
+    doi: "नमस्कार! मै तुहाड़ी स्मार्ट कृषि सहायकी हां। मै तुहाड़ी केते मदद कर सकदा हां?",
+
+    kok: "नमस्कार! हांव तुमचो स्मार्ट कृषि सहाय्यक। हांव तुमका कशें मदत करूंग?",
+
+    mni: "ꯍꯣꯌꯥꯎ! ꯑꯣꯁꯤ ꯑꯩꯔꯣꯀꯁꯤ ꯁꯃꯥꯔꯠ ꯀ꯭ꯔꯤꯁꯤ ꯁꯥꯌꯥꯡ ꯍꯧꯗꯣꯛꯄꯤ। ꯑꯩꯍꯧꯗꯣꯛ ꯇꯧꯔꯣ?",
+
+    ar: "مرحباً! أنا مساعدك الزراعي الذكي. كيف يمكنني مساعدتك اليوم؟",
+
+    brx: "जहर! आं जों नोंथांखौ फदांनोथि गोआनि स्मार्ट फासल सहायक।",
+
+    sa: "नमस्कार! अहं भवतः स्मार्ट कृषि-सहायकः अस्मि। कथं भवतः सहायां करॊमि?"
+
+};
+
+// Populate dropdown
+document.addEventListener("DOMContentLoaded", () => {
+    const selector = document.getElementById("languageSelector");
+    LANGUAGES.forEach(lang => {
+        const option = document.createElement("option");
+        option.value = lang.code;
+        option.textContent = lang.name;
+        if(lang.code==="en") option.selected=true;
+        selector.appendChild(option);
+    });
+});
+
+// Change greeting language
+function changeLanguage(selectedLang) {
+    document.getElementById("chatBox").innerHTML = `<p class="bot-msg">${TRANSLATIONS[selectedLang]}</p>`;
+}
+
+// Send chat
+async function sendChat(){
+    const input=document.getElementById("userMessage");
+    const msg=input.value.trim();
+    if(!msg) return;
+
+    appendChat(msg,null);
+    input.value="";
+
+    appendChat(null,"...");
+
+    const res=await fetch("/chatbot",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+            message:msg,
+            language:document.getElementById("languageSelector").value
+        })
+    });
+
+    const data=await res.json();
+    document.querySelector(".bot-msg:last-child").remove();
+    appendChat(null,data.reply);
+}
+
+// Send image
+// Updated Send image function
+async function sendImage() {
+    const file = document.getElementById("chatImage").files[0];
+    if(!file) return;
+
+    // Show user's upload in chat
+    appendChat(`<img src="${URL.createObjectURL(file)}" style="max-width:200px; border-radius:10px;">`, null);
+
+    const proc = document.createElement("p"); 
+    proc.className = "bot-msg"; proc.id = "processing"; proc.innerHTML = "...";
+    document.getElementById("chatBox").appendChild(proc);
+
+    let formData = new FormData(); 
+    formData.append("file", file);
+
+    // 1. Upload and get prediction + filename
+    const imgRes = await fetch("/dashboard", { method:"POST", body:formData, headers:{"X-Chat-Image":"true"} });
+    const imgData = await imgRes.json();
+    document.getElementById("processing").remove();
+
+    const lang = document.getElementById("languageSelector").value;
+
+    // 2. Send prediction and filename to chatbot
+    const res = await fetch("/chatbot", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+            image_prediction: imgData.prediction, 
+            image_url: imgData.filename, // Pass filename back
+            language: lang 
+        })
+    });
+
+    const final = await res.json();
+    // 3. Append bot reply with the image filename
+    appendChat(null, final.reply, final.image_url);
+}
+
+// Updated Append messages function
+function appendChat(user, bot, botImage = null) {
+    let box = document.getElementById("chatBox");
+    
+    if(user) {
+        box.innerHTML += `<div class="user-msg">${user}</div>`;
+    }
+    
+    if(bot) {
+        let botHtml = `<div class="bot-msg">`;
+        // If the bot response includes an image filename, add the <img> tag first
+        if(botImage) {
+            botHtml += `<img src="/static/uploads/${botImage}" style="max-width:100%; border-radius:8px; margin-bottom:10px; border:1px solid #ddd;">`;
+        }
+        botHtml += `${bot.replace(/\n/g, "<br>")}</div>`;
+        box.innerHTML += botHtml;
+    }
+    
+    box.scrollTop = box.scrollHeight;
+}
+
+// Also update sendChat to match the new 3-parameter signature
+
+</script>
+
+</body>
+</html> 
