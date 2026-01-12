@@ -15,6 +15,9 @@ PlantDocBot processes:
 The image model is the authoritative predictor, while the text model acts as a validator.
 
 ---
+## Demo Video Link: https://drive.google.com/file/d/1sGxfjfJgMhCH4OU96x8ylqIj26PFqeQ2/view?usp=sharing
+
+---
 
 ## Objectives
 
